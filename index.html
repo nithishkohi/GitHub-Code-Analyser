@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Analyzer Pro</title>
+    <!-- Modern Typography: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- BoxIcons for beautiful UI elements -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Application Wrapper -->
+    <div class="app-layout">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="brand">
+                    <i class='bx bxl-github' ></i>
+                    <h2>CodeLens</h2>
+                </div>
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                    <i class='bx bx-sun' id="theme-icon"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="overview">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span>Overview</span>
+                </a>
+                <a href="#" class="nav-item" data-section="execution">
+                    <i class='bx bx-git-repo-forked' ></i>
+                    <span>Execution Flow</span>
+                </a>
+                <a href="#" class="nav-item" data-section="files">
+                    <i class='bx bx-file' ></i>
+                    <span>Change Impact</span>
+                </a>
+                <a href="#" class="nav-item" data-section="setup">
+                    <i class='bx bx-terminal' ></i>
+                    <span>How to Run</span>
+                </a>
+                <a href="#" class="nav-item" data-section="dependencies">
+                    <i class='bx bx-package' ></i>
+                    <span>Dependencies</span>
+                </a>
+                <a href="#" class="nav-item" data-section="languages">
+                    <i class='bx bx-code-alt' ></i>
+                    <span>Languages</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- Welcome / Input State -->
+            <div id="input-container" class="central-view active">
+                <div class="hero-section">
+                    <div class="hero-glow"></div>
+                    <h1>Instantly understand any codebase.</h1>
+                    <p>Paste a GitHub link below. We'll analyze the architecture, dependencies, and execution flow so your interns can onboard in minutes.</p>
+                    
+                    <form id="analyze-form" class="search-bar">
+                        <i class='bx bx-link' ></i>
+                        <input type="url" id="github-url" placeholder="https://github.com/username/repository" required autocomplete="off">
+                        <button type="submit" id="analyze-btn" class="primary-btn">
+                            Analyze
+                            <i class='bx bx-right-arrow-alt'></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading-container" class="central-view hidden">
+                <div class="loader-box">
+                    <div class="spinner"></div>
+                    <h3 id="loading-text">Crawling repository...</h3>
+                    <p>This may take a few seconds.</p>
+                </div>
+            </div>
+
+            <!-- Analysis Results State -->
+            <div id="results-container" class="central-view results-view hidden">
+                
+                <header class="results-header">
+                    <div>
+                        <p class="subtitle">Analyzed Repository</p>
+                        <h2 id="repo-title">username/repository</h2>
+                    </div>
+                    <button id="new-analysis-btn" class="secondary-btn">Analyze Another</button>
+                </header>
+                
+                <div class="results-content-wrapper">
+                    <!-- Dynamic Content Inserted Here by JS -->
+                    <div id="dynamic-content" class="content-section">
+                        <!-- Example: Overview section will be generated here -->
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
